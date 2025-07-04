@@ -1,3 +1,3 @@
 # denbi-nanopore-training
-de.NBI Nanopore Training Course
+de.NBI & ELIXIR Germany Nanopore Training Course
 
