@@ -7,3 +7,4 @@ We will annotate our (almost) finished genome sequence.
    :maxdepth: 1
 
    bakta
+   edgar
