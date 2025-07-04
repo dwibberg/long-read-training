@@ -1,35 +1,11 @@
-Annotating the genome with prokka
+Annotating the genome with Bakta
 =================================
 
-The multiplex capability and high yield of current day DNA-sequencing instruments has made bacterial whole genome sequencing a routine affair. The subsequent de novo assembly of reads into contigs has been well addressed. The final step of annotating all relevant genomic features on those contigs can be achieved slowly using existing web- and email-based systems, but these are not applicable for sensitive data or integrating into computational pipelines. Prokka is a command line software tool to fully annotate a draft bacterial genome in about 10 min on a typical desktop computer. It produces standards-compliant output files for further analysis or viewing in genome browsers.
-
-In order to call prokka, we first need to shorten the name of our largest contig (the genome sequence) because it has gotten quite long due to several pilon rounds. We use a simple shell command to do that::
-
-  mkdir Annotation
-  cat ~/workdir/racon_medaka_pilon/pilon_round4.fasta | sed -e 's/>tig.*/>genome_sequence/g' > ~/workdir/Annotation/genome.fasta
-
-Then we call Prokka with the genome sequence and specify an output directory::
-
-  prokka ~/workdir/Annotation/genome.fasta --outdir ~/workdir/Annotation/prokka/
-
-We will use a genome browser to look at the annotated genome. For this, you have to
-
-1. open a terminal window on **your local workstation**
-2. download the prokka files using Cloud9
-3. start `IGV: Integrative Genomics Viewer`_
-
-Here is the command to open the IGV on your local workstation::
-
-  /vol/cmg/bin/igv.sh
-  
-Now let's look at the annoated genome in IGV. Use the menu ``Genomes->Load Genome from File...``
-
-
-
+The multiplex capability and high yield of current day DNA-sequencing instruments has made bacterial whole genome sequencing a routine affair. The subsequent de novo assembly of reads into contigs has been well addressed. The final step of annotating all relevant genomic features on those contigs can be achieved slowly using existing web- and email-based systems, but these are not applicable for sensitive data or integrating into computational pipelines. The Bakta command line application is widely used and one of the most established tools for bacterial genome annotation. It balances comprehensive annotation with computational efficiency via alignment-free sequence identifications. However, the usage of command line software tools and the interpretation of result files in various formats might be challenging and pose technical barriers. Here, we present the recent updates on the Bakta web server, a user-friendly web interface for conducting and visualizing annotations using Bakta without requiring command line expertise or local computing resources. Key features include interactive visualizations through circular genome plots, linear genome browsers, and searchable data tables facilitating the interpretation of complex annotation results. The web server generates standard bioinformatics outputs (GFF3, GenBank, EMBL) and annotates diverse genomic features, including coding sequences, non-coding RNAs, small open reading frames (sORFs), and many more. The development of an auto-scaling cloud-native architecture and improved database integration led to substantially faster processing times and higher throughputs. The system supports FAIR principles via extensive cross-reference links to external databases, including RefSeq, UniRef, and Gene Ontology. Also, novel features have been implemented to foster sharing and collaborative interpretation of results. The web server is freely available at https://bakta.computational.bio.
 
 References
 ^^^^^^^^^^
 
-**prokka** http://www.vicbioinformatics.com/software.prokka.shtml
+**Bakta Web** https://doi.org/10.1093/nar/gkaf335
 
-**IGV** http://www.broadinstitute.org/igv/
+**Bakta Command Line** https://doi.org/10.1099/mgen.0.000685
